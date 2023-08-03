@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage</title>
+  </head>
+  <body>
+    <h2>localStorage</h2>
+    <!-- localStorage特点：关闭浏览器后存储的数据不会变化 -->
+    <button onclick="saveData()">点我保存数据</button>
+    <button onclick="readData()">点我读取数据</button>
+    <button onclick="deleteData()">点我删除数据</button>
+    <button onclick="deleteAllData()">点我清空数据</button>
+    <script>
+      function saveData() {
+        let p = { name: "张三", age: 18 };
+        // 两个参数：key value 必须都是字符串，就算不是也会执行转化为字符串
+        localStorage.setItem("msg", "hello!");
+        localStorage.setItem("msg2", 666);
+        // 由于会执行转化字符串，所以数据是对象时应用JSON.stringify()以便保存
+        localStorage.setItem('person',JSON.stringify(p))
+      }
+      function readData() {
+        // 如果读取的是不存在的结果返回为null，JSON.parse(null)也是null
+        console.log(localStorage.getItem("msg"));
+        console.log(localStorage.getItem("msg2"));
+
+        const result = localStorage.getItem("person")
+        console.log(JSON.parse(result));
+      }
+      function deleteData() {
+        localStorage.removeItem("msg");
+      }
+      function deleteAllData(){
+        localStorage.clear();
+      }
+    </script>
+  </body>
+</html>
