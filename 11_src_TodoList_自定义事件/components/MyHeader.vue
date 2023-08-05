@@ -12,11 +12,10 @@ export default {
       if(!e.target.value) return alert('输入不能为空')
       // 将用户的输入包装成为一个TODO对象
       const todoObj = {id:nanoid(),name:e.target.value,done:false}
-      this.addTodo(todoObj)
+      this.$emit('addTodo', todoObj)
       e.target.value=""
     }
   },
-  props:["addTodo"]
 };
 </script>
 
