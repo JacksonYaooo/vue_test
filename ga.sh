@@ -1,12 +1,15 @@
 
 #!bin/bash
 
+COLOR='\033[38;2;179;146;240m'
+BOLD='\033[1m'
+NC='\033[0m'
 message="$1"
-echo '--·--·--·- 开始上传 -·--·--·--·'
+echo -e "⭐️${BOLD}${COLOR}--·--·--·- 开始上传 -·--·--·--·"
 
 git add .
 git commit -m  "$message"
 
 git push
 
-echo '--·--·--·- 上传成功 -·--·--·--·'
+echo -e "⭐️${BOLD}${COLOR}--·--·--·- 上传成功 -·--·--·--·"
